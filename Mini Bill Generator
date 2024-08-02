@@ -1,0 +1,35 @@
+menu={
+    'Vada Pav':20,
+    'Misal Pav': 50,
+    'Sandwitch': 30,
+    'Chai': 10,
+    'Coffie': 20,
+    'Bread Omlet': 25,
+    'Pizza': 110,
+}
+
+print("Welcome to Python Hotel")
+print("Vada Pav: Rs.20\nMisal Pav: Rs.50\nSandwitch: Rs.30\nChai: Rs.10\nCoffie: Rs.20\nBread Omlet: Rs.25\nPizza: Rs.110")
+
+Total = 0
+Quantity = 0
+while(True):
+    userinput=(input("Enter the item name you want to order or press q to quit:"))
+    if userinput in menu:
+        print(f"You are ordered {userinput} has been ordered")
+        quantityfood = input("Enter the Quantity of the food:")
+        if(quantityfood.isdigit()):
+            Total += menu[userinput] * int(quantityfood)
+            print(f"You are ordered {quantityfood}:{userinput}")
+            print(f"Your total ordered value so far:{Total}")
+        elif (quantityfood == ""):
+            print(f"Quantity is empty:")
+        elif(quantityfood!=quantityfood.isdigit()):
+            print("Please Provide the quantity in numbers")
+        else:
+            continue
+    elif(userinput!='q'):
+        print(f"Ordered item {userinput} is not available yet!")
+    else:
+        print(f"Bill Total is:{Total}")
+        break
