@@ -1,0 +1,43 @@
+def file():
+    try:
+        file_name = input("File Name:-")
+        with open(file_name, 'w') as file_n:
+            file_n.write("Your File Is Created")
+            print("Your File is Created Successfully")
+            print("---------------------------------------")
+    except:
+        print("Something Went wrong")
+
+def fileopen():
+    try:
+        file_name = input("File Name:-")
+        with open(file_name, 'r') as file:
+            f = file.read()
+            print("File content:")
+            print(f)
+            print("----------------------------------")
+    except:
+        print("File Not Found")
+
+def delfile():
+    delfilename=input("File Name:-")
+    os.remove(delfilename)
+    print("File IS Deleted Successfully")
+
+is_running=True
+while is_running:
+    print("Create.Create the File:")
+    print("Open.Open the File:")
+    print("D.Delete The File:")
+    print("Q. Exit")
+    Choice=(input("Enter the Choice:"))
+    if Choice == 'Create':
+        file()
+    elif Choice == 'Open':
+        fileopen()
+    elif Choice=='D':
+        delfile()
+    elif Choice == 'Q':
+        is_running=False
+    else:
+        print("Please Valid Choice")
