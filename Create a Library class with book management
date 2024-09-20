@@ -1,0 +1,56 @@
+# Create a Library class with book management
+# Create a class Library that manages a collection of books.
+#
+# Requirements:
+#
+# Attributes: books (a list of book titles)
+# Methods:
+# add_book(book) - Adds a book to the collection.
+# remove_book(book) - Removes a book from the collection (if it exists).
+# list_books() - Prints all the books currently in the collection
+
+class Library:
+
+    def __init__(self):
+        self.collecion=['html','css','js']
+
+    def add_book(self,book):
+        self.collecion.append(book)
+
+    def remove_book(self,book):
+        if book in self.collecion:
+            self.collecion.remove(f"{book}")
+        else:
+            print("book is not in collection")
+
+    def show_book(self):
+        if self.collecion:
+            print("Books in the collection:")
+            for book in self.collecion:
+                print(f"- {book}")
+        else:
+            print("The library collection is empty.")
+
+lib_col=Library()
+
+is_running=True
+while is_running:
+    print("1.Show Books:")
+    print("2.Add Book:")
+    print("3.Remove Book:")
+    print("4.Exit")
+    Choice = input("Enter the Choice:")
+    print("-----------------------------")
+    if Choice == '1':
+        print(lib_col.show_book())
+        print("-----------------------------")
+    elif Choice == '2':
+        addbook = input("Enter the book to add:")
+        print("-----------------------------")
+        lib_col.add_book(addbook)
+    elif Choice == '3':
+        removebook=input("Enter the book to remove:")
+        lib_col.remove_book(removebook)
+    elif Choice == '4':
+        is_running = False
+        print("Thank You")
