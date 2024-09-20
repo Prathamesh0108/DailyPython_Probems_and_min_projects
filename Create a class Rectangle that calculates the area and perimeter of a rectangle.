@@ -1,0 +1,29 @@
+Create a Rectangle class
+Create a class Rectangle that calculates the area and perimeter of a rectangle.
+Attributes: length, width
+area() - Returns the area of the rectangle (length × width).
+perimeter() - Returns the perimeter of the rectangle (2 × (length + width)).
+class Rectangle:
+
+    def __init__(self, length, width):
+        self.length=length
+        self.width=width
+    def area(self):
+        return self.length*self.width
+    def perimeter(self):
+        return 2*(self.length+self.width)
+
+length=float(input("Enter the length:"))
+width=float(input("Enter the width:"))
+if length > 0 and width > 0:
+    obj=Rectangle(length,width)
+    print(f"The are of rectangle is :{obj.area()}")
+    print(f"The Perimeter of rectangle is :{obj.perimeter()}")
+elif length<0 and width<0:
+    print(f"length and width  must be positive")
+elif length<0:
+    print(f"The length {length} must be positive")
+elif width<0:
+    print(f"The width {width} must be positive")
+else:
+    print("Invalid input.")
