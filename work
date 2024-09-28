@@ -1,0 +1,35 @@
+import json
+
+
+def load_data():
+    try:
+        with open("useri.txt",'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+    
+def signup(user_data):
+    
+    username=input("Enter Username: ")
+    Password=input("Enter Password: ")
+    user_data.append({'username':username, 'password':Password})
+    with open('useri.txt','w') as file:
+        file.write(json.dumps(user_data))
+        print(type(user_data))
+
+    
+user_data=load_data()
+is_running=True
+while is_running:
+    print("1.Sign up")
+    print("2.Login")
+    print("3.Exit")
+    choice=input("Enter your Choice: ")
+    if choice=='1':
+        signup()
+    elif choice=='2':
+        print("login")
+    elif choice=='3':
+        is_running=False
+    else:
+        print("Invlid Choice")
